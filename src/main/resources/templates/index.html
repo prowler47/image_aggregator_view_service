@@ -2,16 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Parsing images</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-View test
+<h3>Parsing images</h3>
 <form action="/submitUrl" method="post">
+    <div class="main_container">
+        <div class="input_container">
     <label for="url">Enter url:</label>
-    <input type="text" id="url" name="url">
+            <br>
+    <input type="text" id="url" name="url" placeholder="URL address">
+    <br>
+    <br>
+    <label for="directory">Enter directory:</label>
+            <br>
+    <input type="text" id="directory" name="directory" placeholder="Local directory">
+        </div>
+        <br>
     <button type="submit">Submit</button>
-    <br><br>
-    <a target="_blank" href="http://localhost:8080/rabbit/send_list">parse</a>
+    <br>
+    <br>
+    <a target="_blank" href="http://localhost:8080/rabbit/send_list">Parse</a>
+    </div>
 </form>
 </body>
 </html>

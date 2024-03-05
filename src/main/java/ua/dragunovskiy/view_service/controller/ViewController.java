@@ -25,9 +25,10 @@ public class ViewController {
     private RabbitTemplate rabbitTemplate;
 
     @PostMapping("/submitUrl")
-    public String getUrl(@RequestParam("url") String url, Model model) {
+    public String getUrl(@RequestParam("url") String url, @RequestParam("directory") String directory, Model model) {
         model.addAttribute("url", url);
         rabbitTemplate.convertAndSend("Test-exchange", "url", url);
+        rabbitTemplate.convertAndSend("Test-exchange", "directory", directory);
         System.out.println(url);
         return "redirect:/test";
     }
