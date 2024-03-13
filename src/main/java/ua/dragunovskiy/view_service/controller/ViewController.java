@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/view")
 @Getter
 public class ViewController {
 
@@ -25,11 +25,13 @@ public class ViewController {
     private RabbitTemplate rabbitTemplate;
 
     @PostMapping("/submitUrl")
-    public String getUrl(@RequestParam("url") String url, @RequestParam("directory") String directory, Model model) {
+    public String getUrl(@RequestParam("url") String url, @RequestParam("directory") String directory, @RequestParam("key") String key, Model model) {
         model.addAttribute("url", url);
         rabbitTemplate.convertAndSend("Test-exchange", "url", url);
         rabbitTemplate.convertAndSend("Test-exchange", "directory", directory);
+        rabbitTemplate.convertAndSend("Test-exchange", "key", key);
+        rabbitTemplate.convertAndSend("Test-exchange", "key_parser", key);
         System.out.println(url);
-        return "redirect:/test";
+        return "redirect:/view/test";
     }
 }
