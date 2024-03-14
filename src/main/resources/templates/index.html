@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parsing images</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h3>Parsing images</h3>
+<form action="/view/submitUrl" method="post">
+    <div class="main_container">
+        <div class="input_container">
+    <label for="url">Enter url:</label>
+            <br>
+    <input type="text" id="url" name="url" placeholder="URL address">
+    <br>
+    <br>
+    <label for="directory">Enter directory:</label>
+            <br>
+    <input type="text" id="directory" name="directory" placeholder="Local directory">
+            <br>
+            <br>
+            <label for="key">Enter key:</label>
+            <br>
+            <input type="text" id="key" name="key" placeholder="Enter key">
+        </div>
+        <br>
+    <button type="submit">Submit</button>
+    <br>
+    <br>
+    <a target="_blank" href="http://localhost:8080/rabbit/send_list">Parse</a>
+    </div>
+</form>
+</body>
+</html>
